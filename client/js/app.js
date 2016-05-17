@@ -331,3 +331,6 @@ let App = function() {
 };
 
 App();
+
+var htm = '<button id="connectBtn">CONNECT</button><button id="takeOffBtn">TAKE OFF</button><button id="flipBtn">FLIP</button><button id="landBtn">LAND</button><button id="emergencyBtn">EMERGENCY LAND</button>)'
+console.log(JSON.stringify(htm));
