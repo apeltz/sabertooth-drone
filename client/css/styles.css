@@ -85,12 +85,15 @@ body {
   margin-top:80px;
 }
 .spinner {
+  color:#fff;
   margin: 100px auto 80px;
   width: 70px;
   text-align: center;
   display:none;
 }
-
+.spinner > p {
+  padding-top:20px;
+}
 .spinner > div {
   width: 18px;
   height: 18px;

@@ -223,9 +223,6 @@ let App = function() {
     connectButton.innerHTML = 'CONNECTING...';
     $('#connectBtn').hide();
     $('.spinner').show();
-    document.getElementById("app-status").innerHTML = 'Connecting...';
-
-    console.log('Connect');
 
     return discover()
       .then(() => { return connectGATT(); })
@@ -285,6 +282,9 @@ let App = function() {
     console.log('disconnecting ---');
     connectButton.innerHTML = 'CONNECT';
     droneDevice.disconnect();
+    $('.connected-footer').hide();
+    $('#connected-controls').hide();
+    $('#connectBtn').show();
 
   }
 
