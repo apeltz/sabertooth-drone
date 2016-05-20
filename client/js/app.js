@@ -125,7 +125,6 @@ let App = function() {
         console.log('GATT server', server);
         gattServer = server;
       });
-
   }
 
   function _getService(serviceID) {
@@ -225,7 +224,7 @@ let App = function() {
     $('.spinner').show();
 
     return discover()
-      .then(() => { return connectGATT(); })
+      .then(() => { console.log('disovering'); return connectGATT(); })
       .then(() => { return wait(100); })
       .then(() => { return startNotifications() })
       .then(() => {

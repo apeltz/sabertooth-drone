@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/poshaughnessy/web-bluetooth-parrot-drone.git"
   },
-  "author": "Peter O'Shaughnessy",
+  "author": "web-bluetooth-drone",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/poshaughnessy/web-bluetooth-parrot-drone/issues"
