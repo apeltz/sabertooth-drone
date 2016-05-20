@@ -5,18 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Web Bluetooth Drone Demo</title>
     <link rel="stylesheet" href="client/css/styles.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
   <body>
-
-    <img id="headline" src="/client/images/drone-controller.png" alt="Drone Controller"/>
-
-    <button id="connectBtn">CONNECT</button>
-    <button id="takeOffBtn">TAKE OFF</button>
-    <button id="flipBtn">FLIP</button>
-    <button id="landBtn">LAND</button>
-    <button id="emergencyBtn">EMERGENCY LAND</button>
-    <a href="https://twitter.com/poshaughnessy">By @poshaughnessy</a>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 text-center">
+          <h3 id="headline">web-bluetooth <br>drone</h3>
+          <button class="btn connect" id="connectBtn">CONNECT</button>
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+          <div id="connected-controls">
+            <div class="action">
+              <img src="client/images/takeoff.svg" class="action" id="takeOffBtn">
+              <p id="label">TAKEOFF</p>
+            </div>
+            <div class="action">
+              <img src="client/images/flip.svg" class="action" id="flipBtn">
+              <p id="label">FLIP</p>
+            </div>
+            <div class="action">
+              <img src="client/images/land.svg" class="action" id="landBtn">
+              <p id="label">LAND</p>
+            </div>
+          </div>
+          <div class="connected-footer">
+            <button class="btn disconnect" id="disconnectBtn">DISCONNECT</button>
+            <div class="middle mainCtrl">
+              STATUS
+              <p id="app-status">Not connected</p>
+            </div>
+            <button class="btn emergency" id="emergencyBtn">EMERGENCY LAND</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="/client/js/app.js"></script>
   </body>
 </html>

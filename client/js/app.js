@@ -20,6 +20,7 @@ let App = function() {
     flipButton = document.getElementById('flipBtn'),
     landButton = document.getElementById('landBtn'),
     emergencyButton = document.getElementById('emergencyBtn'),
+    disconnectButton = document.getElementById('disconnectBtn'),
     connected = false,
     droneDevice = null,
     gattServer = null,
@@ -218,9 +219,13 @@ let App = function() {
   }
 
   function connect() {
+    // document.getElementsByClassName("connected-footer").style.visibility = 'initial';
+    connectButton.innerHTML = 'CONNECTING...';
+    $('#connectBtn').hide();
+    $('.spinner').show();
+    document.getElementById("app-status").innerHTML = 'Connecting...';
 
     console.log('Connect');
-    connectButton.innerHTML = 'CONNECTING...';
 
     return discover()
       .then(() => { return connectGATT(); })
@@ -228,8 +233,9 @@ let App = function() {
       .then(() => { return startNotifications() })
       .then(() => {
         connected = true;
-        connectButton.innerHTML = 'CONNECTED';
-        console.log('Connected');
+        $('.connected-footer').show();
+        $('#connected-controls').show();
+        document.getElementById("app-status").innerHTML = 'Connected!';
       });
 
   }
@@ -237,9 +243,13 @@ let App = function() {
 
   function takeOff() {
 
-    console.log('Take off...');
+    document.getElementById("app-status").innerHTML = 'Taking off!';
     return droneDevice.gatt.connect()
-      .then(() => {return writeTo('fa00', 'fa0b', [4, steps.fa0b++, 2, 0, 1, 0]);});
+      .then(() => {
+        setTimeout(()=>{
+            document.getElementById("app-status").innerHTML = 'Airborne';
+        },3000);
+        return writeTo('fa00', 'fa0b', [4, steps.fa0b++, 2, 0, 1, 0]);});
 
   }
 
@@ -254,6 +264,10 @@ let App = function() {
   function land() {
 
     console.log('Land...');
+    document.getElementById("app-status").innerHTML = 'Landing!';
+    setTimeout(()=>{
+        document.getElementById("app-status").innerHTML = 'Landed';
+    },4000);
     return droneDevice.gatt.connect()
       .then(() => {return writeTo('fa00', 'fa0b', [4, steps.fa0b++, 2, 0, 3, 0]);});
 
@@ -264,6 +278,13 @@ let App = function() {
     console.warn('Emergency cut off');
     return droneDevice.gatt.connect()
       .then(() => {return writeTo('fa00', 'fa0c', [0x02, steps.fa0c++ & 0xFF, 0x02, 0x00, 0x04, 0x00]);});
+
+  }
+
+  function disconnect() {
+    console.log('disconnecting ---');
+    connectButton.innerHTML = 'CONNECT';
+    droneDevice.disconnect();
 
   }
 
@@ -284,19 +305,28 @@ let App = function() {
   });
 
   takeOffButton.addEventListener('click', () => {
+    console.log('taking off!');
     takeOff();
   });
 
   flipButton.addEventListener('click', () => {
+    console.log('flipping!');
     flip();
   });
 
   landButton.addEventListener('click', () => {
+    console.log('landing!');
     land();
   });
 
   emergencyButton.addEventListener('click', () => {
+    console.log('emergency!');
     emergencyCutOff();
+  });
+
+  disconnectButton.addEventListener('click', () => {
+    console.log('disconnecting');
+    disconnect();
   });
 
   function startNotifications() {

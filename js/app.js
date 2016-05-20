@@ -22,6 +22,7 @@ let App = function() {
     flipButton = document.getElementById('flipBtn'),
     landButton = document.getElementById('landBtn'),
     emergencyButton = document.getElementById('emergencyBtn'),
+    disconnectButton = document.getElementById('disConnectBtn'),
     connected = false,
     droneDevice = null,
     gattServer = null,
@@ -63,6 +64,7 @@ let App = function() {
                     'fsUnknown', 'fsLanding', 'fsCutOff'];
 
                   var array = new Uint8Array(value);
+                  console.log(array);
 
                   if (eventList[array[6]] === 'fsHovering') {
                     console.log('Hovering - ready to go');
@@ -126,6 +128,10 @@ let App = function() {
         console.log('GATT server', server);
         gattServer = server;
       });
+
+  }
+
+  function disconnect() {
 
   }
 
@@ -283,6 +289,10 @@ let App = function() {
     if (!connected) {
       connect();
     }
+  });
+
+  disconnectButton.addEventListener('click', () => {
+    disconnect();
   });
 
   takeOffButton.addEventListener('click', () => {
