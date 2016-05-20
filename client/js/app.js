@@ -231,6 +231,7 @@ let App = function() {
       .then(() => {
         connected = true;
         console.log('connected!');
+        $('.spinner').hide();
         $('.connected-footer').show();
         $('#connected-controls').show();
         document.getElementById("app-status").innerHTML = 'Connected!';
