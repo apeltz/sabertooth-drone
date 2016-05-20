@@ -230,6 +230,7 @@ let App = function() {
       .then(() => { return startNotifications() })
       .then(() => {
         connected = true;
+        console.log('connected!');
         $('.connected-footer').show();
         $('#connected-controls').show();
         document.getElementById("app-status").innerHTML = 'Connected!';
