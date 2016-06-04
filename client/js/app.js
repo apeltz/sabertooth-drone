@@ -218,8 +218,6 @@ let App = function() {
   }
 
   function connect() {
-    // document.getElementsByClassName("connected-footer").style.visibility = 'initial';
-    connectButton.innerHTML = 'CONNECTING...';
     $('#connectBtn').hide();
     $('.spinner').show();
 
@@ -233,7 +231,7 @@ let App = function() {
         $('.spinner').hide();
         $('.connected-footer').show();
         $('#connected-controls').show();
-        document.getElementById("app-status").innerHTML = 'Connected!';
+        $('#app-status').text = 'Connected!';
       });
 
   }
