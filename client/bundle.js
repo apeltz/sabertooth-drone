@@ -628,11 +628,13 @@ var BluetoothDevice = function () {
     key: 'writeValue',
     value: function writeValue(characteristic_name, value) {
       var _this3 = this;
-
+      console.log('bluetooth: ', bluetooth);
+      console.log('bt.gCM: ', bluetooth.gattCharacteristicsMapping);
+      console.log('bt.gCM[char_name]', bluetooth.gattCharacteristicsMapping[characteristic_name]);
       if (!bluetooth.gattCharacteristicsMapping[characteristic_name]) {
         console.log('bluetooth: ', bluetooth);
         console.log('bt.gCM: ', bluetooth.gattCharacteristicsMapping);
-        consoel.log('bt.gCM[char_name]', bluetooth.gattCharacteristicsMapping[characteristic_name]);
+        console.log('bt.gCM[char_name]', bluetooth.gattCharacteristicsMapping[characteristic_name]);
         return errorHandler('characteristic_error', null, characteristic_name);
       }
 
