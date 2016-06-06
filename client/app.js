@@ -45,10 +45,11 @@ let liftLandFlipService = makeUUID('fa00'),
 blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
 
 connectButton.addEventListener('click', () => {
-    blue.connect();
-    blue.startNotifications(liftLandFlipCharacteristic,()=>{
-      console.log('Connected and listening...')
-    })
+    blue.connect()
+    
+    // blue.startNotifications(liftLandFlipCharacteristic,()=>{
+    //   console.log('Connected and listening...')
+    // })
 });
 
 takeOffButton.addEventListener('click', () => {

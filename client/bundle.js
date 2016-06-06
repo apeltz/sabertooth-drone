@@ -48,9 +48,10 @@ blue.addCharacteristic(liftLandFlipCharacteristic, liftLandFlipService, ['read',
 
 connectButton.addEventListener('click', function () {
   blue.connect();
-  blue.startNotifications(liftLandFlipCharacteristic, function () {
-    console.log('Connected and listening...');
-  });
+
+  // blue.startNotifications(liftLandFlipCharacteristic,()=>{
+  //   console.log('Connected and listening...')
+  // })
 });
 
 takeOffButton.addEventListener('click', function () {
