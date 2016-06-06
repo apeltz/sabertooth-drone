@@ -37,6 +37,25 @@ function prepWriteValue(commandArray) {
 
 let liftLandFlipService = makeUUID('fa00'),
     liftLandFlipCharacteristic = makeUUID('fa0b'),
+    //     return startNotificationsForCharacteristic('fb00', 'fb0f')
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fb00', 'fb0e')})
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fb00', 'fb1b')})
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fb00', 'fb1c')})
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fd21', 'fd22')})
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fd21', 'fd23')})
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fd21', 'fd24')})
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fd51', 'fd52')})
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fd51', 'fd53')})
+    //       .then(() => {return wait(100);})
+    //       .then(() => {return startNotificationsForCharacteristic('fd51', 'fd54')})
     liftRawValue = [4, steps.fa0b++, 2, 0, 1, 0],
     flipRawValue = [4, steps.fa0b++, 2, 4, 0, 0, 2, 0, 0, 0],
     landRawValue = [4, steps.fa0b++, 2, 0, 3, 0];
@@ -46,9 +65,7 @@ blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','w
 connectButton.addEventListener('click', () => {
     $('.spinner').show();
     blue.connect().then(()=>{
-      blue.startNotifications(liftLandFlipCharacteristic,()=>{
-        console.log('Connected and listening...')
-      })
+
       $('.spinner').hide();
       $('.connected-footer').show();
       $('#connected-controls').show();
