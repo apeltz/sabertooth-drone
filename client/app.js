@@ -10,6 +10,18 @@ const BluetoothDevice = require('web-bluetooth');
  */
 
 'use strict';
+let connectButton = document.getElementById('connectBtn'),
+    takeOffButton = document.getElementById('takeOffBtn'),
+    flipButton = document.getElementById('flipBtn'),
+    landButton = document.getElementById('landBtn'),
+    emergencyButton = document.getElementById('emergencyBtn'),
+    disconnectButton = document.getElementById('disconnectBtn'),
+    steps = {
+      'fa0a': 1,
+      'fa0b': 1,
+      'fa0c': 1
+    };
+
 let liftLandFlipService = makeUUID('fa00'),
     liftLandFlipCharacteristic = makeUUID('fa0b'),
     service1 = makeUUID('fb00'),
@@ -33,17 +45,6 @@ const blue = new BluetoothDevice(
   {namePrefix: 'T',
   optional_services: [service1,service2,service3,liftLandFlipService]
 });
-let connectButton = document.getElementById('connectBtn'),
-    takeOffButton = document.getElementById('takeOffBtn'),
-    flipButton = document.getElementById('flipBtn'),
-    landButton = document.getElementById('landBtn'),
-    emergencyButton = document.getElementById('emergencyBtn'),
-    disconnectButton = document.getElementById('disconnectBtn'),
-    steps = {
-      'fa0a': 1,
-      'fa0b': 1,
-      'fa0c': 1
-    };
 
 function makeUUID(uniqueSegment) {
   return '9a66' + uniqueSegment + '-0800-9191-11e4-012d1540cb8e';
