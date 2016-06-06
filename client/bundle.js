@@ -60,7 +60,9 @@ connectButton.addEventListener('click', function () {
 });
 
 takeOffButton.addEventListener('click', function () {
+  console.log('liftRawValue: ', liftRawValue);
   var preppedValue = prepWriteValue(liftRawValue);
+  console.log('preppedValue: ', preppedValue);
   blue.writeValue(preppedValue);
 });
 

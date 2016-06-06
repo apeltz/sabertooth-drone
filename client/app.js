@@ -33,7 +33,6 @@ function prepWriteValue(commandArray) {
   var command = new Uint8Array(buffer);
   command.set(commandArray);
   return command;
-
 }
 
 let liftLandFlipService = makeUUID('fa00'),
@@ -59,7 +58,9 @@ connectButton.addEventListener('click', () => {
 });
 
 takeOffButton.addEventListener('click', () => {
+  console.log('liftRawValue: ', liftRawValue);
   let preppedValue = prepWriteValue(liftRawValue);
+  console.log('preppedValue: ', preppedValue);
   blue.writeValue(preppedValue);
 });
 
