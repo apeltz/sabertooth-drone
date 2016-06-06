@@ -46,15 +46,14 @@ blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','w
 connectButton.addEventListener('click', () => {
     $('.spinner').show();
     blue.connect().then(()=>{
+      blue.startNotifications(liftLandFlipCharacteristic,()=>{
+        console.log('Connected and listening...')
+      })
       $('.spinner').hide();
       $('.connected-footer').show();
       $('#connected-controls').show();
       $('#app-status').text = 'Connected!'
-    })
-;
-    // blue.startNotifications(liftLandFlipCharacteristic,()=>{
-    //   console.log('Connected and listening...')
-    // })
+    });
 });
 
 takeOffButton.addEventListener('click', () => {
