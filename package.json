@@ -1,8 +1,8 @@
 {
-  "name": "web-bluetooth-parrot-drone",
+  "name": "Sabertooth Drone Test",
   "version": "0.1.0",
-  "description": "Controlling a Parrot Mini Drone from Chrome for Android, using Web Bluetooth",
-  "main": "index.js",
+  "description": "Simple Demo of Sabertooth Functionality",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
@@ -11,13 +11,19 @@
     "type": "git",
     "url": "git+https://github.com/poshaughnessy/web-bluetooth-parrot-drone.git"
   },
-  "author": "web-bluetooth-drone",
+  "author": "Sabertooth",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/poshaughnessy/web-bluetooth-parrot-drone/issues"
   },
   "homepage": "https://github.com/poshaughnessy/web-bluetooth-parrot-drone#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "web-bluetooth": "0.0.14"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0"
   }
 }

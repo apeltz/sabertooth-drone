@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Web Bluetooth Drone Demo</title>
-    <link rel="stylesheet" href="client/css/styles.css"/>
+    <title>sabertooth drone demo</title>
+    <link rel="stylesheet" href="./styles.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3 text-center">
-          <h1 id="headline">web-bluetooth.js</h1>
-          <h5 id="headline" style="color:white;">drone app</h5>
+          <h1 id="headline">Drone Demo</h1>
+          <h5 id="headline" style="color:white;">A simple use-case example for Sabertooth</h5>
           <button class="btn connect" id="connectBtn">CONNECT</button>
           <div class="spinner">
             <div class="bounce1"></div>
@@ -23,15 +23,15 @@
           </div>
           <div id="connected-controls">
             <div class="action">
-              <img src="client/images/takeoff.svg" class="action" id="takeOffBtn">
+              <img src="./takeoff.svg" class="action" id="takeOffBtn">
               <p id="label">TAKEOFF</p>
             </div>
             <div class="action">
-              <img src="client/images/flip.svg" class="action" id="flipBtn">
+              <img src="./flip.svg" class="action" id="flipBtn">
               <p id="label">FLIP</p>
             </div>
             <div class="action">
-              <img src="client/images/land.svg" class="action" id="landBtn">
+              <img src="./land.svg" class="action" id="landBtn">
               <p id="label">LAND</p>
             </div>
           </div>
@@ -48,6 +48,6 @@
     </div>
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-    <script src="/client/js/app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
