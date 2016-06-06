@@ -60,20 +60,18 @@ connectButton.addEventListener('click', function () {
 });
 
 takeOffButton.addEventListener('click', function () {
-  console.log('liftRawValue: ', liftRawValue);
   var preppedValue = prepWriteValue(liftRawValue);
-  console.log('preppedValue: ', preppedValue);
-  blue.writeValue(preppedValue);
+  blue.writeValue(liftLandFlipCharacteristic, preppedValue);
 });
 
 flipButton.addEventListener('click', function () {
   var preppedValue = prepWriteValue(flipRawValue);
-  blue.writeValue(preppedValue);
+  blue.writeValue(liftLandFlipCharacteristic, preppedValue);
 });
 
 landButton.addEventListener('click', function () {
   var preppedValue = prepWriteValue(landRawValue);
-  blue.writeValue(preppedValue);
+  blue.writeValue(liftLandFlipCharacteristic, preppedValue);
 });
 
 // emergencyButton.addEventListener('click', () => {

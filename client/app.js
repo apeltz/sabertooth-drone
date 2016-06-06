@@ -58,20 +58,18 @@ connectButton.addEventListener('click', () => {
 });
 
 takeOffButton.addEventListener('click', () => {
-  console.log('liftRawValue: ', liftRawValue);
   let preppedValue = prepWriteValue(liftRawValue);
-  console.log('preppedValue: ', preppedValue);
-  blue.writeValue(preppedValue);
+  blue.writeValue(liftLandFlipCharacteristic, preppedValue);
 });
 
 flipButton.addEventListener('click', () => {
   let preppedValue = prepWriteValue(flipRawValue);
-  blue.writeValue(preppedValue);
+  blue.writeValue(liftLandFlipCharacteristic, preppedValue);
 });
 
 landButton.addEventListener('click', () => {
   let preppedValue = prepWriteValue(landRawValue);
-  blue.writeValue(preppedValue);
+  blue.writeValue(liftLandFlipCharacteristic, preppedValue);
 });
 
 // emergencyButton.addEventListener('click', () => {
