@@ -45,8 +45,14 @@ let liftLandFlipService = makeUUID('fa00'),
 blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
 
 connectButton.addEventListener('click', () => {
-    blue.connect()
-    
+    $('.spinner').show();
+    blue.connect().then(()=>{
+      $('.spinner').hide();
+      $('.connected-footer').show();
+      $('#connected-controls').show();
+      $('#app-status').text = 'Connected!'
+    })
+;
     // blue.startNotifications(liftLandFlipCharacteristic,()=>{
     //   console.log('Connected and listening...')
     // })
