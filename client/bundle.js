@@ -628,14 +628,7 @@ var BluetoothDevice = function () {
     key: 'writeValue',
     value: function writeValue(characteristic_name, value) {
       var _this3 = this;
-      console.log('bluetooth: ', bluetooth);
-      console.log('bt.gCM: ', bluetooth.gattCharacteristicsMapping);
-      console.log('bt.gCM[char_name]', bluetooth.gattCharacteristicsMapping[characteristic_name]);
       if (!bluetooth.gattCharacteristicsMapping[characteristic_name]) {
-        console.log('I got in here');
-        console.log('bluetooth: ', bluetooth);
-        console.log('bt.gCM: ', bluetooth.gattCharacteristicsMapping);
-        console.log('bt.gCM[char_name]', bluetooth.gattCharacteristicsMapping[characteristic_name]);
         return errorHandler('characteristic_error', null, characteristic_name);
       }
 
@@ -652,7 +645,7 @@ var BluetoothDevice = function () {
       }).then(function (changedChar) {
         return true;
       }).catch(function (err) {
-        console.log('in writeValue catch')
+        console.log('native error: ', err);
         return errorHandler('write_error', err, characteristic_name);
       });
     }
