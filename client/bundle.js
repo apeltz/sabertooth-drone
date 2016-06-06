@@ -719,6 +719,7 @@ var BluetoothDevice = function () {
           });
         });
       }).catch(function (err) {
+        console.log('sN caught error: ', err);
         return errorHandler('start_notifications_error', err, characteristic_name);
       });
     }
@@ -789,7 +790,7 @@ var BluetoothDevice = function () {
           return errorHandler('improper_service_format', null, primary_service_name);
         }
         if (propertiesArr.constructor !== Array || !propertiesArr.length) {
-          
+
           return errorHandler('improper_properties_format', null, propertiesArr);
         }
 
