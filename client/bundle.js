@@ -1573,10 +1573,10 @@ module.exports = bluetoothMap;
 *
 * @param {string} errorKey - maps to a detailed error message
 * @param {object} nativeError - the native API error object, if present
-* @param {} alternate - 
+* @param {} alternate -
 *
 */
-function errorHandler(errorKey, nativeError, alternate) {
+function errorHandler(errorKey, nativeError, alternateParam) {
 
 		var errorMessages = {
 				add_characteristic_exists_error: "Characteristic " + alternateParam + " already exists.",
@@ -1614,6 +1614,7 @@ function errorHandler(errorKey, nativeError, alternate) {
 }
 
 module.exports = errorHandler;
+
 },{}],5:[function(require,module,exports){
 module.exports = require('./dist/BluetoothDevice');
 

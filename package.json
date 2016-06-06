@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build-bundle": "browserify app.js --o bundle.js -t [ babelify --presets [ es2015 ] ]"
+    "build-bundle": "browserify ./client/app.js --o ./client/bundle.js -t [ babelify --presets [ es2015 ] ]"
   },
   "repository": {
     "type": "git",
