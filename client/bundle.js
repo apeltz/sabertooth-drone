@@ -44,7 +44,7 @@ var liftLandFlipService = makeUUID('fa00'),
     flipRawValue = [4, steps.fa0b++, 2, 4, 0, 0, 2, 0, 0, 0],
     landRawValue = [4, steps.fa0b++, 2, 0, 3, 0];
 
-blue.addCharacteristic(liftLandFlipCharacteristic, liftLandFlipService, ['read', 'write', 'notify']);
+blue.addCharacteristic(liftLandFlipCharacteristic, liftLandFlipService, ['read']);
 
 connectButton.addEventListener('click', function () {
   blue.connect();
