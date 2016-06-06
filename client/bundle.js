@@ -579,9 +579,14 @@ var BluetoothDevice = function () {
           requestParams.filters.push({ services: services });
         })();
       }
+      console.log('filters.optional_services: ', filters.optional_services)
       if (filters.optional_services) {
         filters.optional_services.forEach(function (service) {
-          if (!bluetooth.gattServiceList.includes(service)) bluetooth.gattServiceList.push(service);
+          console.log('checking service: ', service)
+          if (!bluetooth.gattServiceList.includes(service)) {
+            bluetooth.gattServiceList.push(service);
+            console.log('adding service: ', service)
+          }
         });
       } else {
         requestParams.optionalServices = bluetooth.gattServiceList;
