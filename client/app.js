@@ -37,35 +37,48 @@ function prepWriteValue(commandArray) {
 
 let liftLandFlipService = makeUUID('fa00'),
     liftLandFlipCharacteristic = makeUUID('fa0b'),
-    //     return startNotificationsForCharacteristic('fb00', 'fb0f')
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fb00', 'fb0e')})
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fb00', 'fb1b')})
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fb00', 'fb1c')})
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fd21', 'fd22')})
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fd21', 'fd23')})
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fd21', 'fd24')})
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fd51', 'fd52')})
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fd51', 'fd53')})
-    //       .then(() => {return wait(100);})
-    //       .then(() => {return startNotificationsForCharacteristic('fd51', 'fd54')})
+    service1 = makeUUID('fb00'),
+    s1Char1 = makeUUID('fb0f'),
+    s1Char2 = makeUUID('fb0e'),
+    s1Char3 = makeUUID('fb1b'),
+    s1Char4 = makeUUID('fb1c'),
+    service2 = makeUUID('fd21'),
+    s2Char1 = makeUUID('fd22'),
+    s2Char2 = makeUUID('fd23'),
+    s2Char3 = makeUUID('fd24'),
+    service3 = makeUUID('fd51'),
+    s3Char1 = makeUUID('fd52'),
+    s3Char2 = makeUUID('fd53'),
+    s3Char3 = makeUUID('fd54'),
     liftRawValue = [4, steps.fa0b++, 2, 0, 1, 0],
     flipRawValue = [4, steps.fa0b++, 2, 4, 0, 0, 2, 0, 0, 0],
     landRawValue = [4, steps.fa0b++, 2, 0, 3, 0];
 
 blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
+blue.addCharacteristic(s1Char1,service1,['read','write','notify']);
+blue.addCharacteristic(s1Char2,service1,['read','write','notify']);
+blue.addCharacteristic(s1Char3,service1,['read','write','notify']);
+blue.addCharacteristic(s1Char4,service1,['read','write','notify']);
+blue.addCharacteristic(s2Char1,service2,['read','write','notify']);
+blue.addCharacteristic(s2Char2,service2,['read','write','notify']);
+blue.addCharacteristic(s2Char3,service2,['read','write','notify']);
+blue.addCharacteristic(s3Char1,service3,['read','write','notify']);
+blue.addCharacteristic(s3Char2,service3,['read','write','notify']);
+blue.addCharacteristic(s3Char3,service3,['read','write','notify']);
 
 connectButton.addEventListener('click', () => {
     $('.spinner').show();
     blue.connect().then(()=>{
-
+      blue.startNotifications(s1Char1);
+      blue.startNotifications(s1Char2);
+      blue.startNotifications(s1Char3);
+      blue.startNotifications(s1Char3);
+      blue.startNotifications(s2Char1);
+      blue.startNotifications(s2Char2);
+      blue.startNotifications(s2Char3);
+      blue.startNotifications(s1Char1);
+      blue.startNotifications(s2Char2);
+      blue.startNotifications(s3Char3);
       $('.spinner').hide();
       $('.connected-footer').show();
       $('#connected-controls').show();
