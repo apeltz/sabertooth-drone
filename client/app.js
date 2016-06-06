@@ -57,21 +57,20 @@ function prepWriteValue(commandArray) {
   return command;
 }
 
-blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
-blue.addCharacteristic(s1Char1,service1,['read','write','notify']);
-blue.addCharacteristic(s1Char2,service1,['read','write','notify']);
-blue.addCharacteristic(s1Char3,service1,['read','write','notify']);
-blue.addCharacteristic(s1Char4,service1,['read','write','notify']);
-blue.addCharacteristic(s2Char1,service2,['read','write','notify']);
-blue.addCharacteristic(s2Char2,service2,['read','write','notify']);
-blue.addCharacteristic(s2Char3,service2,['read','write','notify']);
-blue.addCharacteristic(s3Char1,service3,['read','write','notify']);
-blue.addCharacteristic(s3Char2,service3,['read','write','notify']);
-blue.addCharacteristic(s3Char3,service3,['read','write','notify']);
-
 connectButton.addEventListener('click', () => {
     $('.spinner').show();
     blue.connect().then(()=>{
+      blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
+      blue.addCharacteristic(s1Char1,service1,['read','write','notify']);
+      blue.addCharacteristic(s1Char2,service1,['read','write','notify']);
+      blue.addCharacteristic(s1Char3,service1,['read','write','notify']);
+      blue.addCharacteristic(s1Char4,service1,['read','write','notify']);
+      blue.addCharacteristic(s2Char1,service2,['read','write','notify']);
+      blue.addCharacteristic(s2Char2,service2,['read','write','notify']);
+      blue.addCharacteristic(s2Char3,service2,['read','write','notify']);
+      blue.addCharacteristic(s3Char1,service3,['read','write','notify']);
+      blue.addCharacteristic(s3Char2,service3,['read','write','notify']);
+      blue.addCharacteristic(s3Char3,service3,['read','write','notify']);
       blue.startNotifications(s1Char1, e =>{console.log('in')});
       blue.startNotifications(s1Char2, e =>{console.log('in')});
       blue.startNotifications(s1Char3, e =>{console.log('in')});
