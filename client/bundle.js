@@ -72,16 +72,36 @@ blue.addCharacteristic(s3Char3, service3, ['read', 'write', 'notify']);
 connectButton.addEventListener('click', function () {
   $('.spinner').show();
   blue.connect().then(function () {
-    blue.startNotifications(s1Char1);
-    blue.startNotifications(s1Char2);
-    blue.startNotifications(s1Char3);
-    blue.startNotifications(s1Char3);
-    blue.startNotifications(s2Char1);
-    blue.startNotifications(s2Char2);
-    blue.startNotifications(s2Char3);
-    blue.startNotifications(s1Char1);
-    blue.startNotifications(s2Char2);
-    blue.startNotifications(s3Char3);
+    blue.startNotifications(s1Char1, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s1Char2, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s1Char3, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s1Char3, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s2Char1, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s2Char2, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s2Char3, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s1Char1, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s2Char2, function (e) {
+      console.log('in');
+    });
+    blue.startNotifications(s3Char3, function (e) {
+      console.log('in');
+    });
     $('.spinner').hide();
     $('.connected-footer').show();
     $('#connected-controls').show();
@@ -752,7 +772,7 @@ var BluetoothDevice = function () {
   }, {
     key: 'addCharacteristic',
     value: function addCharacteristic(characteristic_name, primary_service_name, propertiesArr) {
-      console.log('propsArr: ', propertiesArr)
+
       if (bluetooth.gattCharacteristicsMapping[characteristic_name]) {
         return errorHandler('add_characteristic_exists_error', null, characteristic_name);
       }
@@ -769,7 +789,7 @@ var BluetoothDevice = function () {
           return errorHandler('improper_service_format', null, primary_service_name);
         }
         if (propertiesArr.constructor !== Array || !propertiesArr.length) {
-          console.log('propertiesArr: ',propertiesArr)
+          
           return errorHandler('improper_properties_format', null, propertiesArr);
         }
 

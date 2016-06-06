@@ -69,16 +69,16 @@ blue.addCharacteristic(s3Char3,service3,['read','write','notify']);
 connectButton.addEventListener('click', () => {
     $('.spinner').show();
     blue.connect().then(()=>{
-      blue.startNotifications(s1Char1);
-      blue.startNotifications(s1Char2);
-      blue.startNotifications(s1Char3);
-      blue.startNotifications(s1Char3);
-      blue.startNotifications(s2Char1);
-      blue.startNotifications(s2Char2);
-      blue.startNotifications(s2Char3);
-      blue.startNotifications(s1Char1);
-      blue.startNotifications(s2Char2);
-      blue.startNotifications(s3Char3);
+      blue.startNotifications(s1Char1, e =>{console.log('in')});
+      blue.startNotifications(s1Char2, e =>{console.log('in')});
+      blue.startNotifications(s1Char3, e =>{console.log('in')});
+      blue.startNotifications(s1Char3, e =>{console.log('in')});
+      blue.startNotifications(s2Char1, e =>{console.log('in')});
+      blue.startNotifications(s2Char2, e =>{console.log('in')});
+      blue.startNotifications(s2Char3, e =>{console.log('in')});
+      blue.startNotifications(s1Char1, e =>{console.log('in')});
+      blue.startNotifications(s2Char2, e =>{console.log('in')});
+      blue.startNotifications(s3Char3, e =>{console.log('in')});
       $('.spinner').hide();
       $('.connected-footer').show();
       $('#connected-controls').show();
