@@ -10,8 +10,29 @@ const BluetoothDevice = require('web-bluetooth');
  */
 
 'use strict';
+let liftLandFlipService = makeUUID('fa00'),
+    liftLandFlipCharacteristic = makeUUID('fa0b'),
+    service1 = makeUUID('fb00'),
+    s1Char1 = makeUUID('fb0f'),
+    s1Char2 = makeUUID('fb0e'),
+    s1Char3 = makeUUID('fb1b'),
+    s1Char4 = makeUUID('fb1c'),
+    service2 = makeUUID('fd21'),
+    s2Char1 = makeUUID('fd22'),
+    s2Char2 = makeUUID('fd23'),
+    s2Char3 = makeUUID('fd24'),
+    service3 = makeUUID('fd51'),
+    s3Char1 = makeUUID('fd52'),
+    s3Char2 = makeUUID('fd53'),
+    s3Char3 = makeUUID('fd54'),
+    liftRawValue = [4, steps.fa0b++, 2, 0, 1, 0],
+    flipRawValue = [4, steps.fa0b++, 2, 4, 0, 0, 2, 0, 0, 0],
+    landRawValue = [4, steps.fa0b++, 2, 0, 3, 0];
 
-const blue = new BluetoothDevice({namePrefix: 'T'});
+const blue = new BluetoothDevice(
+  {namePrefix: 'T',
+  optional_services: [service1,service2,service3,liftLandFlipService]
+});
 let connectButton = document.getElementById('connectBtn'),
     takeOffButton = document.getElementById('takeOffBtn'),
     flipButton = document.getElementById('flipBtn'),
@@ -34,25 +55,6 @@ function prepWriteValue(commandArray) {
   command.set(commandArray);
   return command;
 }
-
-let liftLandFlipService = makeUUID('fa00'),
-    liftLandFlipCharacteristic = makeUUID('fa0b'),
-    service1 = makeUUID('fb00'),
-    s1Char1 = makeUUID('fb0f'),
-    s1Char2 = makeUUID('fb0e'),
-    s1Char3 = makeUUID('fb1b'),
-    s1Char4 = makeUUID('fb1c'),
-    service2 = makeUUID('fd21'),
-    s2Char1 = makeUUID('fd22'),
-    s2Char2 = makeUUID('fd23'),
-    s2Char3 = makeUUID('fd24'),
-    service3 = makeUUID('fd51'),
-    s3Char1 = makeUUID('fd52'),
-    s3Char2 = makeUUID('fd53'),
-    s3Char3 = makeUUID('fd54'),
-    liftRawValue = [4, steps.fa0b++, 2, 0, 1, 0],
-    flipRawValue = [4, steps.fa0b++, 2, 4, 0, 0, 2, 0, 0, 0],
-    landRawValue = [4, steps.fa0b++, 2, 0, 3, 0];
 
 blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
 blue.addCharacteristic(s1Char1,service1,['read','write','notify']);
