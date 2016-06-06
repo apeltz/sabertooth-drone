@@ -61,27 +61,27 @@ connectButton.addEventListener('click', () => {
     $('.spinner').show();
     blue.connect().then(()=>{
       console.log('blue: ', blue)
-      blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
-      blue.addCharacteristic(s1Char1,service1,['read','write','notify']);
-      blue.addCharacteristic(s1Char2,service1,['read','write','notify']);
-      blue.addCharacteristic(s1Char3,service1,['read','write','notify']);
-      blue.addCharacteristic(s1Char4,service1,['read','write','notify']);
-      blue.addCharacteristic(s2Char1,service2,['read','write','notify']);
-      blue.addCharacteristic(s2Char2,service2,['read','write','notify']);
-      blue.addCharacteristic(s2Char3,service2,['read','write','notify']);
-      blue.addCharacteristic(s3Char1,service3,['read','write','notify']);
-      blue.addCharacteristic(s3Char2,service3,['read','write','notify']);
-      blue.addCharacteristic(s3Char3,service3,['read','write','notify']);
-      blue.startNotifications(s1Char1, e =>{console.log('in')});
-      blue.startNotifications(s1Char2, e =>{console.log('in')});
-      blue.startNotifications(s1Char3, e =>{console.log('in')});
-      blue.startNotifications(s1Char3, e =>{console.log('in')});
-      blue.startNotifications(s2Char1, e =>{console.log('in')});
-      blue.startNotifications(s2Char2, e =>{console.log('in')});
-      blue.startNotifications(s2Char3, e =>{console.log('in')});
-      blue.startNotifications(s1Char1, e =>{console.log('in')});
-      blue.startNotifications(s2Char2, e =>{console.log('in')});
-      blue.startNotifications(s3Char3, e =>{console.log('in')});
+      // blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
+      // blue.addCharacteristic(s1Char1,service1,['read','write','notify']);
+      // blue.addCharacteristic(s1Char2,service1,['read','write','notify']);
+      // blue.addCharacteristic(s1Char3,service1,['read','write','notify']);
+      // blue.addCharacteristic(s1Char4,service1,['read','write','notify']);
+      // blue.addCharacteristic(s2Char1,service2,['read','write','notify']);
+      // blue.addCharacteristic(s2Char2,service2,['read','write','notify']);
+      // blue.addCharacteristic(s2Char3,service2,['read','write','notify']);
+      // blue.addCharacteristic(s3Char1,service3,['read','write','notify']);
+      // blue.addCharacteristic(s3Char2,service3,['read','write','notify']);
+      // blue.addCharacteristic(s3Char3,service3,['read','write','notify']);
+      // blue.startNotifications(s1Char1, e =>{console.log('in')});
+      // blue.startNotifications(s1Char2, e =>{console.log('in')});
+      // blue.startNotifications(s1Char3, e =>{console.log('in')});
+      // blue.startNotifications(s1Char3, e =>{console.log('in')});
+      // blue.startNotifications(s2Char1, e =>{console.log('in')});
+      // blue.startNotifications(s2Char2, e =>{console.log('in')});
+      // blue.startNotifications(s2Char3, e =>{console.log('in')});
+      // blue.startNotifications(s1Char1, e =>{console.log('in')});
+      // blue.startNotifications(s2Char2, e =>{console.log('in')});
+      // blue.startNotifications(s3Char3, e =>{console.log('in')});
       $('.spinner').hide();
       $('.connected-footer').show();
       $('#connected-controls').show();
@@ -91,7 +91,11 @@ connectButton.addEventListener('click', () => {
 
 takeOffButton.addEventListener('click', () => {
   let preppedValue = prepWriteValue(liftRawValue);
-  blue.writeValue(liftLandFlipCharacteristic, preppedValue);
+  blue.connect().then(()=>{
+    console.log('connected: ', blue.connected());
+    blue.writeValue(liftLandFlipCharacteristic, preppedValue);
+  })
+  // blue.writeValue(liftLandFlipCharacteristic, preppedValue);
 });
 
 flipButton.addEventListener('click', () => {
