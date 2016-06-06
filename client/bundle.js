@@ -732,7 +732,7 @@ var BluetoothDevice = function () {
         if (primary_service_name.constructor !== String || !primary_service_name.length) {
           return errorHandler('improper_service_format', null, primary_service_name);
         }
-        if (propertiesArr.constuctor !== Array || !propertiesArr.length) {
+        if (propertiesArr.constructor !== Array || !propertiesArr.length) {
           console.log('propertiesArr: ',propertiesArr)
           return errorHandler('improper_properties_format', null, propertiesArr);
         }
