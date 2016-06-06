@@ -332,7 +332,7 @@ let App = function() {
     return discover()
       .then(() => { console.log('disovering'); return connectGATT(); })
       .then(() => { return wait(100); })
-      .then(() => { return startNotifications() })
+      // .then(() => { return startNotifications() })
       .then(() => {
         connected = true;
         console.log('connected!');

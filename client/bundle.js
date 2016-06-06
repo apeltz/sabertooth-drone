@@ -306,9 +306,9 @@ var App = function App() {
       console.log('disovering');return connectGATT();
     }).then(function () {
       return wait(100);
-    }).then(function () {
-      return startNotifications();
-    }).then(function () {
+    })
+    // .then(() => { return startNotifications() })
+    .then(function () {
       connected = true;
       console.log('connected!');
       $('.spinner').hide();
