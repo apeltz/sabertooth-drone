@@ -1,3 +1,4 @@
+const BluetoothDevice = require('web-bluetooth');
 /**
  * Services:
  *  - fa00 - contains 'write without response' characteristics starting with fa...
