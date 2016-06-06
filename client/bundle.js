@@ -549,7 +549,7 @@ var BluetoothDevice = function () {
     key: 'connect',
     value: function connect() {
       var _this = this;
-
+      console.log('this: ', this)
       var filters = this.requestParams;
       var requestParams = { filters: [] };
       var uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]/;
