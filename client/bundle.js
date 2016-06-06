@@ -62,6 +62,7 @@ function prepWriteValue(commandArray) {
 connectButton.addEventListener('click', function () {
   $('.spinner').show();
   blue.connect().then(function () {
+    console.log('blue: ', blue);
     blue.addCharacteristic(liftLandFlipCharacteristic, liftLandFlipService, ['read', 'write', 'notify']);
     blue.addCharacteristic(s1Char1, service1, ['read', 'write', 'notify']);
     blue.addCharacteristic(s1Char2, service1, ['read', 'write', 'notify']);

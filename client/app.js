@@ -60,6 +60,7 @@ function prepWriteValue(commandArray) {
 connectButton.addEventListener('click', () => {
     $('.spinner').show();
     blue.connect().then(()=>{
+      console.log('blue: ', blue)
       blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
       blue.addCharacteristic(s1Char1,service1,['read','write','notify']);
       blue.addCharacteristic(s1Char2,service1,['read','write','notify']);
@@ -84,7 +85,7 @@ connectButton.addEventListener('click', () => {
       $('.spinner').hide();
       $('.connected-footer').show();
       $('#connected-controls').show();
-      $('#app-status').text = 'Connected!'
+      $('#app-status').text = 'Connected!';
     });
 });
 
