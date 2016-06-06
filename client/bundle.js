@@ -44,7 +44,7 @@ var liftLandFlipService = makeUUID('fa00'),
     flipRawValue = [4, steps.fa0b++, 2, 4, 0, 0, 2, 0, 0, 0],
     landRawValue = [4, steps.fa0b++, 2, 0, 3, 0];
 
-blue.addCharacteristic(liftLandFlipCharacteristic, liftLandFlipService, ['read']);
+blue.addCharacteristic(liftLandFlipCharacteristic, liftLandFlipService, ['read', 'write', 'notify']);
 
 connectButton.addEventListener('click', function () {
   blue.connect();
@@ -481,7 +481,7 @@ var BluetoothDevice = function () {
     }
 
     /** connect - establishes a connection with the device
-      *   
+      *
       * NOTE: This method must be triggered by a user gesture to satisfy the native API's permissions
       *
       * @return {object} - native browser API device server object
@@ -591,7 +591,7 @@ var BluetoothDevice = function () {
 
     /** writeValue - writes data to a specified characteristic of the device
       *
-      * @param {string} characteristic_name - name of the GATT characteristic 
+      * @param {string} characteristic_name - name of the GATT characteristic
       *     https://www.bluetooth.com/specifications/assigned-numbers/generic-attribute-profile
       *
       * @param {string|number} value - value to write to the requested device characteristic
@@ -716,6 +716,7 @@ var BluetoothDevice = function () {
   }, {
     key: 'addCharacteristic',
     value: function addCharacteristic(characteristic_name, primary_service_name, propertiesArr) {
+      console.log('propsArr: ', propertiesArr)
       if (bluetooth.gattCharacteristicsMapping[characteristic_name]) {
         return errorHandler('add_characteristic_exists_error', null, characteristic_name);
       }
@@ -732,6 +733,7 @@ var BluetoothDevice = function () {
           return errorHandler('improper_service_format', null, primary_service_name);
         }
         if (propertiesArr.constuctor !== Array || !propertiesArr.length) {
+          console.log('propertiesArr: ',propertiesArr)
           return errorHandler('improper_properties_format', null, propertiesArr);
         }
 
@@ -792,6 +794,7 @@ var BluetoothDevice = function () {
 }();
 
 module.exports = BluetoothDevice;
+
 },{"./bluetoothMap":3,"./errorHandler":4}],3:[function(require,module,exports){
 'use strict';
 
