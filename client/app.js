@@ -61,7 +61,7 @@ connectButton.addEventListener('click', () => {
     $('.spinner').show();
     blue.connect().then(()=>{
       console.log('blue: ', blue)
-      // blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
+      blue.addCharacteristic(liftLandFlipCharacteristic,liftLandFlipService,['read','write','notify']);
       // blue.addCharacteristic(s1Char1,service1,['read','write','notify']);
       // blue.addCharacteristic(s1Char2,service1,['read','write','notify']);
       // blue.addCharacteristic(s1Char3,service1,['read','write','notify']);
@@ -91,10 +91,10 @@ connectButton.addEventListener('click', () => {
 
 takeOffButton.addEventListener('click', () => {
   let preppedValue = prepWriteValue(liftRawValue);
-  blue.connect().then(()=>{
+
     console.log('connected: ', blue.connected());
     blue.writeValue(liftLandFlipCharacteristic, preppedValue);
-  })
+
   // blue.writeValue(liftLandFlipCharacteristic, preppedValue);
 });
 
