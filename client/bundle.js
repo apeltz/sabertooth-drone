@@ -591,7 +591,7 @@ var BluetoothDevice = function () {
       } else {
         requestParams.optionalServices = bluetooth.gattServiceList;
       }
-      console.log('requestParams: ', requestParams)
+      console.log('bluetooth.gattServiceList: ', bluetooth.gattServiceList)
       return navigator.bluetooth.requestDevice(requestParams).then(function (device) {
         _this.apiDevice = device;
         return device.gatt.connect();
